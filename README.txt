@@ -2,9 +2,7 @@
 
 ## Introduction
 
-The provided maps are based on Eurocordex NetCDF files on adjusted IPCC models (https://www.euro-cordex.net/060378/index.php.en) and display 
-the number of days the meteorological variable is above the threshold (example : Maximum daily temperature > 30°c). 
-Variable, threshold and time intervall are to be chosen by user. Some custom localization markers can be added.
+The provided maps are based on Eurocordex NetCDF files on adjusted IPCC models (https://www.euro-cordex.net/060378/index.php.en) and display the number of days the meteorological variable is above the threshold (example : Maximum daily temperature > 30°c). Variable, threshold and time intervall are to be chosen by user. Some custom localization markers can be added.
 
 ## Table of contents
 
