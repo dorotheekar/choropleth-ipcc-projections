@@ -81,15 +81,16 @@ When this process is complete, you can properly ```pip install -r requirements.t
 		- ```threshold``` : Threshold studied considering the variable chosen.
 		- ```start_date``` : Start date of the period studied.
 		- ```end_date``` : End date of the period studied.
-		- ```period``` : Name of the scenario projection(RCP26/RCP45/RCP85) if different to historical period. It is useful to get to the corresponding folder and will appear on the map. (The original project provides only RCP85 projection)
-
-		- ```location_marker``` : Asking the user if he wants to display a map with marker or not.
-		- ```custom``` : Asking the user if he wants to display a map with custom markers.
-		- ```text_marker``` : User needs to choose marker names.
-		- ```list_of_latitudes``` : User needs to enter the each latitude for markers.
-		- ```list_of_longitudes``` : User needs to enter the each longitude for markers.
-		- ```color_list``` : User needs to enter the each color for markers.
-		- ```marker_size``` : User needs to choose one marker size.
+		- ```period``` : Name of the scenario projection (RCP26/RCP45/RCP85) if different to historical period. It is useful to get to the corresponding folder and will appear on the map. (The original project provides only RCP85 projection)
+		- ```yn_max_scale``` : Asking user if need of a maximum custom on scale map.
+			- ```max_scale``` : User choosing the maximum of map scale.
+		- ```location_marker``` : Asking user if he needs to display a map with marker or not.
+		- ```custom``` : Asking user if he wants to display a map with custom markers.
+			- ```text_marker``` : User choosing marker names.
+			- ```list_of_latitudes``` : User entering each latitude for markers.
+			- ```list_of_longitudes``` : User entering each longitude for markers.
+			- ```color_list``` : User entering each color for markers.
+			- ```marker_size``` : User choosing one marker size.
 
 * Module :
 
