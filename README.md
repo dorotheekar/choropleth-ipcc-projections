@@ -2,10 +2,9 @@
 
 ### Introduction
 
-The provided maps are based on Eurocordex NetCDF files on adjusted IPCC models (https://www.euro-cordex.net/060378/index.php.en) and display 
-the number of days the meteorological variable is above the threshold (example : Maximum daily max temperature > 30°c). 
-Variable, threshold and time intervall are to be chosen by user. Some custom localization markers can be added (edit the caracteristics in ```locations.csv```)
-
+> The provided maps are based on Eurocordex NetCDF files on adjusted IPCC models (https://www.euro-cordex.net/060378/index.php.en) and display 
+the number of days the meteorological variable is above the threshold (example : Maximum daily max temperature > 30°c). Variable, threshold and time intervall are to be chosen by user. Some custom localization markers can be added (edit the caracteristics in ```locations.csv```)
+<!-- toc -->
 ### Table of contents
 
 - [Technology](#technology)
@@ -25,13 +24,8 @@ Project created with :
 
 ### Setup
 
-Please note that geopandas module sometimes can't be just installed with pip install geopandas. This requires to download wheel dependecies such as : 
-Fiona, DAL, pyproj, rtree, and shapely (provided here : https://www.lfd.uci.edu/~gohlke/pythonlibs/). It should match your architecture and python version. 
-When each wheel is downloaded, please open a command prompt and change directories to the folder where they are located. 
-Run for each one of them ```pip install wheel_filename.whl```. Then, run ```pip install geopandas```
-		
-When this process is complete, you can properly ```pip install -r requirements.txt``` in order to install all other necessary modules.
-
+> Please note that geopandas module sometimes can't be just installed with pip install geopandas. This requires to download wheel dependecies such as : Fiona, DAL, pyproj, rtree, and shapely (provided here : https://www.lfd.uci.edu/~gohlke/pythonlibs/). It should match your architecture and python version. When each wheel is downloaded, please open a command prompt and change directories to the folder where they are located. Run for each one of them ```pip install wheel_filename.whl```. Then, run ```pip install geopandas```. When this process is complete, you can properly ```pip install -r requirements.txt``` in order to install all other necessary modules.
+<!-- toc -->
 ### Folder structure
 ```
 ├── README.txt          
