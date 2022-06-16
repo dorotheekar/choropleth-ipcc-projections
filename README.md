@@ -18,7 +18,7 @@ Variable, threshold and time intervall are to be chosen by user. Some custom loc
 	4. [Requirements] (#requirements)
 	5. [Geographical Data] (#geographical-data)
 
-## Technology <a name="technology"></a>
+## Technology [](#){name=technology}
 
 Project created with :
 ```Python 3.9.13```
