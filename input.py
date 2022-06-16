@@ -106,7 +106,6 @@ else :
         # Located files where we will get the data
 
 # Computing number of years, will be necessary to compute year average
-
 years_number = int(f'{end_date[:4]}') - int(f'{start_date[:4]}')
 
 print(f"Your map will be displayed on {years_number} year(s).")
