@@ -61,9 +61,9 @@ When this process is complete, you can properly ```pip install -r requirements.t
 ```
 ### Files description
 #### Data : 
-<!-- toc -->
-Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
 
+Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
+<!-- toc -->
 - ```prAdjust``` : daily precipitation adjusted model 
 	- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
 	- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
@@ -101,8 +101,9 @@ Note that anyone could had  other files with other temporal range or other varia
 - ```main.py``` : contains all custom modules to provide choropleth map.
 
 #### Output :
+
+> Choropleth maps in html depending on variables chosen by user.
 <!-- toc -->
-choropleth maps in html depending on variables chosen by user.
 
 - ```{variable_name}_{period}_{threshold}_without_marker.html``` : choropleth map specified without any marker
 - ```{variable_name}_{period}_{threshold}_with_marker.html``` : choropleth map specified with markers
@@ -122,8 +123,10 @@ choropleth maps in html depending on variables chosen by user.
 	- ```dask```
 
 #### Geographical data : 
+
+Files used to parse data according to geographical division chosen by the user
 <!-- toc -->
-files used to parse data according to geographical division chosen by the user
+
 - ```europe_nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
 - ```europe_nutsrg2.json``` : a .json file providing a regions division of Europe
 - ```europe_countries.geojson``` : a .geojson file providing a countries division of Europe
