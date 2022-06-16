@@ -17,56 +17,94 @@ from main import choropleth_function
 
 ############################
 # BEGINNING OF USER CHOICES
-# > In order to personnalize maps, user is allowed to choose the variables that follow
+# In order to personnalize maps, user has to choose the variables that follow
 ###################
 # Meteorological variables choices
 
 # User can use Temperature or Precipitation variable (limited to the files provided on original project)
 
 while True :
-    variable_input = input(">>> Choose a variable : T (Daily Temperature Max) or P (Daily Precipitation Cumulation) = ")
-    if variable_input == 'T' :
+    variable_input = input(">>> Choose a variable : TMIN (Daily Temperature Min) ; TMAX (Daily Temperature Max) or P (Daily Precipitation Cumulation)  = ")
+    if variable_input == 'TMAX' :
 
         variable_name = 'tasmaxAdjust'# name of the variable in NetCDF files
         unit = '°C'
+        color_continuous_scale = ['#A6A6A6','#4C7F13', '#002b14']
         break
 
     if variable_input == 'P' :
         variable_name = "prAdjust" # name of the variable in NetCDF files 
         unit = 'mm/day'
+        color_continuous_scale = ['#A6A6A6','#06527C', '#032B41']
+        break
+
+    if variable_input == 'TMIN' :
+        variable_name = 'tasminAdjust' # name of the variable ine NetCDF files
+        unit = '°C'
+        color_continuous_scale = ['#A6A6A6','#06527C', '#032B41']
         break
 
     else :
-        print("Error: Please answer T or P to the previous question.")
+        print("Error: Please choose TMIN, TMAX or P.")
 
 # User can choose the threshold which will be studied	
-threshold = int(input(">>> Choose the studied variable threshold. (recommended : 30 (Temperature) or 50 (Precipitation)) = "))
+threshold = int(input(">>> Choose the threshold of the studied variable; (recommended : 30 (Temperature Max) ; 0 (Temperature Min) or 50 (Precipitation)) = "))
+
+# User can personnalized the maximum scale of the map (in order to have a )
+# If user says no, the maximum will be automatically provided considering the data computed
+while True :
+    yn_max_scale = input(" >>> Do you wish to choose the maximum scale ? (Y/N) = ")
+
+    if yn_max_scale == 'Y' :
+        max_scale = int(input(" >>> Choose the maximum scale = "))
+        break
+
+    if yn_max_scale == 'N' :
+        print(" Your choice has been saved.")
+        break
+
+    else :
+        print("Error: Please answer Y or N to the previous question.")
+
 
 ###################
 # Text choice
 text_description = ""
 
 ###################
-# Type of projection choice
-RCP = input('>>> Choose the scenario name (historical; RCP45; RCP60; RCP85) = ')
-
-###################
 # Temporal variables choices : setting period, legend title and folders where the data is
-start_date = input(">>> Write the start year (YYYY) (between 2010 and 2019 or 2045 and 2055) = ")+"0101"
+start_date = input(">>> Write the start year (YYYY) (between 2006 and 2019 or 2036 and 2059) = ")+"0101"
 
-if int(f'{start_date[:4]}') < 2022:
-    end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2019) = ") +"0101"    
-    period = 'histo'
-    legend = f'Days with + {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]})'
-    filename = f'./data/{variable_name}/{period}_projections/*.nc'
-    # Located files where we will get the data
+if variable_input != "TMIN":
+    if int(f'{start_date[:4]}') < 2022:
+        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2020) = ") +"0101"    
+        period = 'histo'
+        legend = f'Days with + {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]})'
+        filename = f'./data/{variable_name}/{period}_projections/*.nc'
+        # Located files where we will get the data
+
+    else :
+        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2060) = ") +"0101"
+        period = input('>>> Choose the scenario name (RCP45; RCP60; RCP85) = ')
+        legend = f'Days with + {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]}) ({period})'
+        filename = f'./data/{variable_name}/{period}_projections/*.nc'
+        # Located files where we will get the data
 
 else :
-    end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2055) = ") +"0101"
-    period = RCP
-    legend = f'Days with + {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]}) ({period})'
-    filename = f'./data/{variable_name}/{period}_projections/*.nc'
-    # Located files where we will get the data
+    if int(f'{start_date[:4]}') < 2022:
+        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2020) = ") +"0101"    
+        period = 'histo'
+        legend = f'Days with - {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]})'
+        filename = f'./data/{variable_name}/{period}_projections/*.nc'
+        # Located files where we will get the data
+
+    else :
+        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2060) = ") +"0101"
+        period = input('>>> Choose the scenario name (RCP45; RCP60; RCP85) = ')
+        legend = f'Days with - {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]}) ({period})'
+        filename = f'./data/{variable_name}/{period}_projections/*.nc'
+        # Located files where we will get the data
+
 
 years_number = int(f'{end_date[:4]}') - int(f'{start_date[:4]}')
 
@@ -89,7 +127,7 @@ while True :
     location_marker = input(">>> Would you like to display location markers on your map ? (Y/N) = ")
 
     if location_marker == 'N' : # user doesn't want any location marker
-        print("Your choice has been successfully saved.")
+        print("Your choice has been saved.")
         
         break
 
@@ -115,7 +153,7 @@ while True :
 
 
             marker_size = int(input('>> Specify the marker size (recommended : 12) = '))
-            print("Your choice has been successfully saved.")
+            print("Your choice has been saved.")
             break
 
         if custom  == "N" :
@@ -144,8 +182,9 @@ user_choice = choropleth_function(
 
     variable_input, variable_name, unit, threshold,
     start_date, end_date, years_number,
-    text_description, RCP, period, legend, filename,
-    text_marker, location_marker, custom, list_of_latitudes, list_of_longitudes, color_list, marker_size
+    text_description, period, legend, filename,
+    text_marker, location_marker, custom, list_of_latitudes, list_of_longitudes, color_list, marker_size,
+    color_continuous_scale
 
     )
 
@@ -173,11 +212,14 @@ initial_european_data = user_choice.european_area(df)
 ######################################################
 # Chosen variable computation on temporal range
 
-if variable_input == "T" :
-    final_european_data = user_choice.temperature_computation(ds, initial_european_data)
+if variable_input == "TMAX" :
+    final_european_data = user_choice.temperature_max_computation(ds, initial_european_data)
 
 if variable_input == "P":
     final_european_data =  user_choice.precipitation_computation(ds, initial_european_data)
+
+if variable_input == "TMIN" :
+    final_european_data = user_choice.temperature_min_computation(ds, initial_european_data)
 
 ######################################################
 # Chosen variable computation on geographical range
@@ -186,18 +228,25 @@ data = user_choice.data_with_index(final_european_data, geo_data_used_without_in
 
 data_without_index = user_choice.data_without_index(data)
 
-maxi = user_choice.data_max(final_european_data)
+maxi = user_choice.data_max(data)
 
 ######################################################
 # Choropleth map with markers
 
 if location_marker == 'Y':
-    output_with_markers = user_choice.choropleth_map_with_markers(data, geo_data_used, maxi)
+    if yn_max_scale == 'Y' : 
+        output_with_markers = user_choice.choropleth_map_with_markers(data, geo_data_used, max_scale)
+    if yn_max_scale == 'N':
+        output_with_markers = user_choice.choropleth_map_with_markers(data, geo_data_used, maxi)
 
 # Choropleth map without markers
 
 if location_marker == 'N':
-    output_without_marker = user_choice.choropleth_map_without_marker(data, geo_data_used, maxi)
+    if yn_max_scale == 'Y' : 
+        output_with_markers = user_choice.choropleth_map_without_marker(data, geo_data_used, max_scale)
+
+    if yn_max_scale == 'N' :
+        output_without_marker = user_choice.choropleth_map_without_marker(data, geo_data_used, maxi)
 
 ######################################################
 
