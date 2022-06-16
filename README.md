@@ -8,10 +8,10 @@ Variable, threshold and time intervall are to be chosen by user. Some custom loc
 
 ### Table of contents
 
-1. [Technology] (#technology)
-2. [Setup] (#setup)
-3. [Folder structure] (#folder-structure)
-4. [Files description] (#files-description)
+* [Technology] (#technology)
+* [Setup] (#setup)
+* [Folder structure] (#folder-structure)
+* [Files description] (#files-description)
 	- [Data] (#data)
 	- [Input] (#input)
 	- [Module] (#module)
