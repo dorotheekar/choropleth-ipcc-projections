@@ -23,9 +23,9 @@ Python 3.9.13
 Please note that geopandas module sometimes can't be just installed with pip install geopandas. This requires to download wheel dependecies such as : 
 Fiona, DAL, pyproj, rtree, and shapely (provided here : https://www.lfd.uci.edu/~gohlke/pythonlibs/). It should match your architecture and python version. 
 When each wheel is downloaded, please open a command prompt and change directories to the folder where they are located. 
-Run for each one of them "pip install wheel_filename.whl".
+Run for each one of them ```pip install wheel_filename.whl```.
 		
-When this process is complete, you can properly pip install -r requirements.txt in order to install geopandas and all other necessary modules.
+When this process is complete, you can properly ```pip install -r requirements.txt``` in order to install geopandas and all other necessary modules.
 
 ## Folder structure
 ```
@@ -56,19 +56,23 @@ When this process is complete, you can properly pip install -r requirements.txt 
 * Data : Note that anyone could had  other files with other temporal range or other variables respecting
 	   folder structure below.
 
-	- prAdjust : daily precipitation adjusted model 
+	- ```prAdjust``` : daily precipitation adjusted model 
 
-				= histo-projections : .nc files on temporal range 2010 to 2019
-				= RCP85-projections : .nc files on temporal range 2045 to 2055
+				```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
+				```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 
-	- tasmaxAdjust : daily temperature adjusted model
+	- ```tasmaxAdjust``` : daily maximum temperature adjusted model
 
-				= histo-projections : .nc files on temporal range 2010 to 2019
-				= RCP85-projections : .nc files on temporal range 2045 to 2055
+				```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
+				```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 
+	- ```tasminAdjust``` : daily minimum temperature adjusted model
+
+				```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020 
+				```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 * Input : 
 
-	- input.py : list of variables chosen by user
+	- ```input.py``` : list of variables chosen by user
 			= variable_input : Variable name studied (NetCDF files here provide only precipitation cumulation per day, temperature maximum per day, temperature minimum per day).
 			= threshold : Threshold studied considering the variable chosen.
 			= start_date : Start date of the period studied.
@@ -85,17 +89,17 @@ When this process is complete, you can properly pip install -r requirements.txt 
 
 * Module :
 
-	- main.py : contains all custom modules to provide choropleth map.
+	- ```main.py``` : contains all custom modules to provide choropleth map.
 
 * Output : choropleth maps in html depending on variables chosen by user.
 
-	- {variable_name}_{period}_{threshold}_without_marker.html : choropleth map specified without any marker
-	- {variable_name}_{period}_{threshold}_with_marker.html : choropleth map specified with markers
+	- ```{variable_name}_{period}_{threshold}_without_marker.html``` : choropleth map specified without any marker
+	- ```{variable_name}_{period}_{threshold}_with_marker.html``` : choropleth map specified with markers
 
 * Requirements : 
 
-	-  requirements.txt : 	
-	
+	-  ```requirements.txt``` : 	
+```
 		= pandas
 		= xarray
 		= numpy
@@ -104,11 +108,11 @@ When this process is complete, you can properly pip install -r requirements.txt 
 		= shapely
 		= netCDF
 		= dask
-
+```
 * Geographical data : files used to parse data according to geographical division chosen by the user
 
-	- nutsrg1.json : a .json file providing a regions enlarged division of Europe
-	- nutsrg2.json : a .json file providing a regions division of Europe
-	- europe.geojson : a .geojson file providing a countries division of Europe
+	- ```nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
+	- ```nutsrg2.json``` : a .json file providing a regions division of Europe
+	- ```europe.geojson``` : a .geojson file providing a countries division of Europe
 
          
