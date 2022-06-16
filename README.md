@@ -15,7 +15,7 @@ Variable, threshold and time intervall are to be chosen by user. Some custom loc
 
 ## Technology 
 
-Project is created with :
+Project created with :
 Python 3.9.13
 
 ## Setup
@@ -32,12 +32,18 @@ When this process is complete, you can properly pip install -r requirements.txt 
 ├── README.txt          
 ├── data
 │   ├── prAdjust 
+│   │  │
 │   │  ├── histo_projections : *.nc
+│   │  │
 │   │  └── RCP85_projections : *.nc
 │   │
+│   │
 │   └── tasmaxAdjust
+│      │
 │      ├── histo_projections : *.nc
+│      │
 │      └── RCP85_projections : *.nc
+│
 ├── input.py              
 ├── main.py             
 ├── requirements.txt                          
