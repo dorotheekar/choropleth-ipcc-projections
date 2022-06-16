@@ -53,7 +53,7 @@ class choropleth_function:
             if geo_data == 'C': 
                 # European Countries division
 
-                geo_data_used = gpd.read_file('europe.geojson')
+                geo_data_used = gpd.read_file('europe_countries.geojson')
                 geo_data_used = geo_data_used.set_index(['UN']).sort_values(by = ['UN'])
                 geo_data_used_without_index = geo_data_used.reset_index()
 
@@ -63,7 +63,7 @@ class choropleth_function:
             if geo_data == 'R':
                 # European Regions division
 
-                geo_data_used = gpd.read_file('nutsrg_2.json')
+                geo_data_used = gpd.read_file('europe_nutsrg_2.json')
                 geo_data_used = geo_data_used.sort_values(by = ['id']).set_index(['id'])
                 geo_data_used_without_index = geo_data_used.reset_index()
 
@@ -73,7 +73,7 @@ class choropleth_function:
             if geo_data == 'ER':
                 # Enlarged European Regions division
 
-                geo_data_used = gpd.read_file('nutsrg_1.json')
+                geo_data_used = gpd.read_file('europe_nutsrg_1.json')
                 geo_data_used = geo_data_used.sort_values(by = ['id']).set_index(['id'])
                 geo_data_used_without_index  = geo_data_used.reset_index()
 
