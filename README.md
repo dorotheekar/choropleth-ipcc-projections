@@ -65,9 +65,8 @@ When this process is complete, you can properly ```pip install -r requirements.t
 	   folder structure below.
 
 	- ```prAdjust``` : daily precipitation adjusted model 
-	
-					- data/histo-projections/*.nc : .nc files on temporal range 2006 to 2020
-					- data/RCP85-projections/*.nc : .nc files on temporal range 2036 to 2060
+		- data/histo-projections/*.nc : .nc files on temporal range 2006 to 2020
+		- data/RCP85-projections/*.nc : .nc files on temporal range 2036 to 2060
 
 	- ```tasmaxAdjust``` : daily maximum temperature adjusted model
 
