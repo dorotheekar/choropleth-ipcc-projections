@@ -41,7 +41,6 @@ When this process is complete, you can properly ```pip install -r requirements.t
 │   │  ├── histo_projections : *.nc
 │   │  └── RCP85_projections : *.nc
 │   │
-│   │
 │   ├── tasmaxAdjust
 │   │  │
 │   │  ├── histo_projections : *.nc
@@ -82,10 +81,10 @@ When this process is complete, you can properly ```pip install -r requirements.t
 		- ```threshold``` : Threshold studied considering the variable chosen.
 		- ```start_date``` : Start date of the period studied.
 		- ```end_date``` : End date of the period studied.
-		- ```period``` : Name of the scenario projection. It is useful to get to the corresponding folder and will appear on the map. (The original project provides only RCP85 projection)
+		- ```period``` : Name of the scenario projection(RCP26/RCP45/RCP85) if different to historical period. It is useful to get to the corresponding folder and will appear on the map. (The original project provides only RCP85 projection)
 
 		- ```location_marker``` : Asking the user if he wants to display a map with marker or not.
-		- ```custom```: Asking the user if he wants to display a map with custom markers.
+		- ```custom``` : Asking the user if he wants to display a map with custom markers.
 		- ```text_marker``` : User needs to choose marker names.
 		- ```list_of_latitudes``` : User needs to enter the each latitude for markers.
 		- ```list_of_longitudes``` : User needs to enter the each longitude for markers.
