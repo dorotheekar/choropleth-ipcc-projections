@@ -76,7 +76,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 		- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020 
 		- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 * Input :
-
+	
 	- ```input.py``` : list of variables chosen by user
 		- ```variable_input``` : Variable name studied (NetCDF files here provide only precipitation cumulation per day, temperature maximum per day, temperature minimum per day).
 		- ```threshold``` : Threshold studied considering the variable chosen.
