@@ -17,8 +17,9 @@ class choropleth_function:
     def __init__(self,
     variable_input, variable_name, unit, threshold, # meteorological variables
     start_date, end_date, years_number, # temporal variables
-    text_description, RCP, period, legend, filename, # description variables
-    text_marker, location_marker, custom, list_of_latitudes, list_of_longitudes, color_list, marker_size) : # marker variables
+    text_description, period, legend, filename, # description variables
+    text_marker, location_marker, custom, list_of_latitudes, list_of_longitudes, color_list, marker_size,# marker variables
+    color_continuous_scale) : 
 
     # Variables will be chosen by the user in the input file
 
@@ -29,7 +30,6 @@ class choropleth_function:
         self.start_date = start_date
         self.end_date = end_date
         self.years_number = years_number
-        self.RCP = RCP
         self.period = period
         self.legend = legend
         self.filename = filename
@@ -41,6 +41,7 @@ class choropleth_function:
         self.text_description = text_description
         self.text_marker = text_marker
         self.marker_size = marker_size
+        self.color_continuous_scale = color_continuous_scale
 
     ######################################################################        
     def map_division(self):
@@ -160,7 +161,7 @@ class choropleth_function:
         return initial_european_data
 
     ######################################################################
-    def temperature_computation(self, ds, initial_european_data):
+    def temperature_max_computation(self, ds, initial_european_data):
     # Number of days with temperature above the threshold computation on temporal range (by POINTS)
 
         print("> Temperature days computation on geographical range in progress...") 
@@ -178,6 +179,31 @@ class choropleth_function:
             # This is the average days by year the respect the threshold given
 
         initial_european_data[self.legend] = SummList
+        # Saving the list of data in final dataframe
+
+        print("> Temperature days successfully computed on geographical range.") 
+
+        return initial_european_data
+
+    ######################################################################
+    def temperature_min_computation(self, ds, initial_european_data):
+    # Number of days with temperature above the threshold computation on temporal range (by POINTS)
+
+        print("> Temperature days computation on geographical range in progress...") 
+
+        MinList = []
+        for i in range(len(initial_european_data)):
+            # Loop will search for every POINT (rlat, rlon) the corresponding data
+
+            vals = ds.sel(rlat = initial_european_data['rlat'].iloc[i], rlon = initial_european_data['rlon'].iloc[i])[self.variable_name].values
+            su = [1 if v - 273.15 <= self.threshold else 0 for v in vals] 
+            # We aim at counting the days that respect the threshold given by the user
+            # As we will give the temperature in celsius degree we convert 0 °C + 273.15 = 273.15 K
+
+            MinList.append(sum(su) / self.years_number)
+            # This is the average days by year the respect the threshold given
+
+        initial_european_data[self.legend] = MinList
         # Saving the list of data in final dataframe
 
         print("> Temperature days successfully computed on geographical range.") 
@@ -225,8 +251,8 @@ class choropleth_function:
             pip_data = final_european_data.loc[final_european_data.within(geo_data_used_without_index.loc[ligne, 'geometry'])]
             # Verify if POINT is contained in POLYGONS of the geodataframe that the user chose
 
-            datum.append(pip_data[self.legend].max()) 
-            # Keep the maximum of the POLYGON
+            datum.append(pip_data[self.legend].mean()) 
+            # Keep the mean of the POLYGON
 
         data = pd.DataFrame(datum)
         data['id'] = geo_data_used_without_index['id']
@@ -248,10 +274,10 @@ class choropleth_function:
         return data_without_index
 
     ######################################################################
-    def data_max(self, final_european_data):
+    def data_max(self, data):
     # Save data maximum (in order to custom it on choropleth map)
 
-        return final_european_data [self.legend].max()
+        return data [self.legend].max()
 
     ######################################################################
     def choropleth_map_without_marker(self, data, geo_data_used, maxi):
@@ -269,7 +295,7 @@ class choropleth_function:
             center = {'lat':47, 'lon':6},
             zoom = 3.2,
             opacity = 1,
-            color_continuous_scale = ['#A6A6A6','#4C7F13', '#002b14'],
+            color_continuous_scale = self.color_continuous_scale,
             range_color = [0, maxi]
             ))
 
@@ -299,7 +325,7 @@ class choropleth_function:
                 center = {'lat':47, 'lon':6},
                 zoom = 3.2,
                 opacity = 1,
-                color_continuous_scale = ['#A6A6A6','#4C7F13', '#002b14'],
+                color_continuous_scale = self.color_continuous_scale,
                 range_color = [0, maxi]
 
             )
