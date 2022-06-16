@@ -4,7 +4,7 @@
 
 The provided maps are based on Eurocordex NetCDF files on adjusted IPCC models (https://www.euro-cordex.net/060378/index.php.en) and display 
 the number of days the meteorological variable is above the threshold (example : Maximum daily max temperature > 30°c). 
-Variable, threshold and time intervall are to be chosen by user. Some custom localization markers can be added.
+Variable, threshold and time intervall are to be chosen by user. Some custom localization markers can be added (edit the caracteristics in ```locations.csv```)
 
 ### Table of contents
 
@@ -28,9 +28,9 @@ Project created with :
 Please note that geopandas module sometimes can't be just installed with pip install geopandas. This requires to download wheel dependecies such as : 
 Fiona, DAL, pyproj, rtree, and shapely (provided here : https://www.lfd.uci.edu/~gohlke/pythonlibs/). It should match your architecture and python version. 
 When each wheel is downloaded, please open a command prompt and change directories to the folder where they are located. 
-Run for each one of them ```pip install wheel_filename.whl```.
+Run for each one of them ```pip install wheel_filename.whl```. Then, run ```pip install geopandas```
 		
-When this process is complete, you can properly ```pip install -r requirements.txt``` in order to install geopandas and all other necessary modules.
+When this process is complete, you can properly ```pip install -r requirements.txt``` in order to install all other necessary modules.
 
 ### Folder structure
 ```
@@ -52,7 +52,8 @@ When this process is complete, you can properly ```pip install -r requirements.t
 │      └── RCP85_projections : *.nc
 │
 ├── input.py              
-├── main.py             
+├── main.py 
+├── locations.csv            
 ├── requirements.txt                          
 ├── nutsrg_1.json         
 ├── nutsrg_2.json            
@@ -84,13 +85,14 @@ When this process is complete, you can properly ```pip install -r requirements.t
 		- ```period``` : Name of the scenario projection (RCP26/RCP45/RCP85) if different to historical period. It is useful to get to the corresponding folder and will appear on the map. (The original project provides only RCP85 projection)
 		- ```yn_max_scale``` : Asking user if need of a maximum custom on scale map.
 			- ```max_scale``` : User choosing the maximum of map scale.
+
+	-```locations.csv ``` : caracteristics of location points user wants to display on map
 		- ```location_marker``` : Asking user if he needs to display a map with marker or not.
-		- ```custom``` : Asking user if he wants to display a map with custom markers.
-			- ```text_marker``` : User choosing marker names.
-			- ```list_of_latitudes``` : User entering each latitude for markers.
-			- ```list_of_longitudes``` : User entering each longitude for markers.
-			- ```color_list``` : User entering each color for markers.
-			- ```marker_size``` : User choosing one marker size.
+		- ```text_marker``` : User choosing marker names.
+		- ```list_of_latitudes``` : User entering each latitude for markers.
+		- ```list_of_longitudes``` : User entering each longitude for markers.
+		- ```color_list``` : User entering each color for markers.
+		- ```marker_size``` : User choosing one marker size.
 
 * Module :
 
