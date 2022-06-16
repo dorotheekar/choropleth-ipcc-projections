@@ -8,17 +8,22 @@ Variable, threshold and time intervall are to be chosen by user. Some custom loc
 
 ## Table of contents
 
-* [Technology] (#technology)
-* [Setup] (#setup)
-* [Folder structure] (#folder-structure)
-* [Files description] (#files-description)
+1. [Technology] (#technology)
+2. [Setup] (#setup)
+3. [Folder structure] (#folder-structure)
+4. [Files description] (#files-description)
+	1. [Data] (#data)
+	2. [Input] (#input)
+	3. [Module] (#module)
+	4. [Requirements] (#requirements)
+	5. [Geographical Data] (#geographical-data)
 
-## Technology 
+## Technology <a name="technology"></a>
 
 Project created with :
 ```Python 3.9.13```
 
-## Setup
+## Setup <a name="setup"></a>
 
 Please note that geopandas module sometimes can't be just installed with pip install geopandas. This requires to download wheel dependecies such as : 
 Fiona, DAL, pyproj, rtree, and shapely (provided here : https://www.lfd.uci.edu/~gohlke/pythonlibs/). It should match your architecture and python version. 
@@ -27,7 +32,7 @@ Run for each one of them ```pip install wheel_filename.whl```.
 		
 When this process is complete, you can properly ```pip install -r requirements.txt``` in order to install geopandas and all other necessary modules.
 
-## Folder structure
+## Folder structure <a name="folder-structure"></a>
 ```
 ├── README.txt          
 ├── data
@@ -54,7 +59,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 ├── nutsrg_2.json            
 └── europe.geojson   
 ```
-## Files description
+## Files description <a name="files-description"></a>
 
 * Data : Note that anyone could had  other files with other temporal range or other variables respecting
 	   folder structure below.
@@ -73,7 +78,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 
 				- data/histo-projections/*.nc : .nc files on temporal range 2006 to 2020 
 				- data/RCP85-projections/*.nc : .nc files on temporal range 2036 to 2060
-* Input : 
+* Input : <a name="input"></a>
 
 	- ```input.py``` : list of variables chosen by user
 
@@ -91,16 +96,19 @@ When this process is complete, you can properly ```pip install -r requirements.t
 			- color_list : User needs to enter the each color for markers.
 			- marker_size : User needs to choose one marker size.
 
-* Module :
+* Module : <a name="module"></a>
+
 
 	- ```main.py``` : contains all custom modules to provide choropleth map.
 
-* Output : choropleth maps in html depending on variables chosen by user.
+* Output : <a name="ouput"></a>
+choropleth maps in html depending on variables chosen by user.
 
 	- ```{variable_name}_{period}_{threshold}_without_marker.html``` : choropleth map specified without any marker
 	- ```{variable_name}_{period}_{threshold}_with_marker.html``` : choropleth map specified with markers
 
-* Requirements : 
+* Requirements : <a name="requirements"></a>
+
 
 	-  ```requirements.txt``` : 	
 ```
@@ -113,7 +121,9 @@ When this process is complete, you can properly ```pip install -r requirements.t
 		- netCDF
 		- dask
 ```
-* Geographical data : files used to parse data according to geographical division chosen by the user
+* Geographical data : <a name="geographical-data"></a>
+
+files used to parse data according to geographical division chosen by the user
 
 	- ```nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
 	- ```nutsrg2.json``` : a .json file providing a regions division of Europe
