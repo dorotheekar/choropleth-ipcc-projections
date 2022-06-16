@@ -8,15 +8,15 @@ Variable, threshold and time intervall are to be chosen by user. Some custom loc
 
 ### Table of contents
 
-* [Technology](#technology)
-* [Setup](#setup)
-* [Folder structure](#folder-structure)
-* [Files description](#files-description)
-	- [Data](#data)
-	- [Input](#input)
-	- [Module](#module)
-	- [Requirements](#requirements)
-	- [Geographical Data](#geographical-data)
+- [Technology](#technology)
+- [Setup](#setup)
+- [Folder structure](#folder-structure)
+- [Files description](#files-description)
+	* [Data](#data)
+	* [Input](#input)
+	* [Module](#module)
+	* [Requirements](#requirements)
+	* [Geographical Data](#geographical-data)
 
 ### Technology 
 
