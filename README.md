@@ -62,7 +62,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 ### Files description
 #### Data : 
 
-Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
+> Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
 <!-- toc -->
 - ```prAdjust``` : daily precipitation adjusted model 
 	- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
@@ -124,7 +124,7 @@ Note that anyone could had  other files with other temporal range or other varia
 
 #### Geographical data : 
 
-Files used to parse data according to geographical division chosen by the user
+> Files used to parse data according to geographical division chosen by the user
 <!-- toc -->
 
 - ```europe_nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
