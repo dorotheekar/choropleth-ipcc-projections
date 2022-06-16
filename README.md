@@ -105,17 +105,17 @@ When this process is complete, you can properly ```pip install -r requirements.t
 * Requirements : 
 
 
-	-  ```requirements.txt``` : 	
-```
-- pandas
-- xarray
-- numpy
-- geopandas
-- plotly
-- shapely
-- netCDF
-- dask
-```
+	-  ```requirements.txt``` : All external modules needed to run code. Please make sure you've downloaded all geopandas dependencies (see here)
+
+	- ```pandas```
+	- ```xarray```
+	- ```numpy```
+	- ```geopandas```
+	- ```plotly```
+	- ```shapely```
+	- ```netCDF```
+	- ```dask```
+
 * Geographical data : files used to parse data according to geographical division chosen by the user
 	- ```nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
 	- ```nutsrg2.json``` : a .json file providing a regions division of Europe
