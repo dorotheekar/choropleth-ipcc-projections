@@ -86,7 +86,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 		- ```yn_max_scale``` : Asking user if need of a maximum custom on scale map.
 			- ```max_scale``` : User choosing the maximum of map scale.
 
-	- ```locations.csv ``` : caracteristics of location points user wants to display on map
+	- ```locations.csv ``` : caracteristics of location points user wants to display on map.
 		- ```location_marker``` : Asking user if he needs to display a map with marker or not.
 		- ```text_marker``` : User choosing marker names.
 		- ```list_of_latitudes``` : User entering each latitude for markers.
