@@ -55,9 +55,9 @@ When this process is complete, you can properly ```pip install -r requirements.t
 ├── main.py 
 ├── locations.csv            
 ├── requirements.txt                          
-├── nutsrg_1.json         
-├── nutsrg_2.json            
-└── europe.geojson   
+├── europe_nutsrg_1.json         
+├── europe_nutsrg_2.json            
+└── europe_countries.geojson   
 ```
 ### Files description
 
@@ -119,8 +119,8 @@ When this process is complete, you can properly ```pip install -r requirements.t
 		- ```dask```
 
 * Geographical data : files used to parse data according to geographical division chosen by the user
-	- ```nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
-	- ```nutsrg2.json``` : a .json file providing a regions division of Europe
-	- ```europe.geojson``` : a .geojson file providing a countries division of Europe
+	- ```europe_nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
+	- ```europe_nutsrg2.json``` : a .json file providing a regions division of Europe
+	- ```europe_countries.geojson``` : a .geojson file providing a countries division of Europe
 
          
