@@ -28,7 +28,7 @@ Run for each one of them "pip install wheel_filename.whl".
 When this process is complete, you can properly pip install -r requirements.txt in order to install geopandas and all other necessary modules.
 
 ## Folder structure
-
+```
 ├── README.txt          
 ├── data
 │   ├── prAdjust 
@@ -50,7 +50,7 @@ When this process is complete, you can properly pip install -r requirements.txt 
 ├── nutsrg_1.json         
 ├── nutsrg_2.json            
 └── europe.geojson   
-
+```
 ## Files description
 
 * Data : Note that anyone could had  other files with other temporal range or other variables respecting
