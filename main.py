@@ -18,7 +18,7 @@ class choropleth_function:
     variable_input, variable_name, unit, threshold, # meteorological variables
     start_date, end_date, years_number, # temporal variables
     text_description, period, legend, filename, # description variables
-    text_marker, location_marker, custom, list_of_latitudes, list_of_longitudes, color_list, marker_size,# marker variables
+    text_marker, location_marker, list_of_latitudes, list_of_longitudes, color_list, marker_size,# marker variables
     color_continuous_scale) : 
 
     # Variables will be chosen by the user in the input file
@@ -34,7 +34,6 @@ class choropleth_function:
         self.legend = legend
         self.filename = filename
         self.location_marker = location_marker
-        self.custom = custom
         self.list_of_latitudes = list_of_latitudes
         self.list_of_longitudes = list_of_longitudes
         self.color_list = color_list
