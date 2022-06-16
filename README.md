@@ -61,66 +61,67 @@ When this process is complete, you can properly ```pip install -r requirements.t
 ```
 ### Files description
 
-* Data : Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
+# Data : Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
 
-	- ```prAdjust``` : daily precipitation adjusted model 
-		- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
-		- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
+- ```prAdjust``` : daily precipitation adjusted model 
+	- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
+	- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 
-	- ```tasmaxAdjust``` : daily maximum temperature adjusted model
-		- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
-		- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
+- ```tasmaxAdjust``` : daily maximum temperature adjusted model
+	- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
+	- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 
-	- ```tasminAdjust``` : daily minimum temperature adjusted model
+- ```tasminAdjust``` : daily minimum temperature adjusted model
 
-		- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020 
-		- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
-* Input :
+	- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020 
+	- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 
-	- ```input.py``` : list of variables chosen by user
-		- ```variable_input``` : Variable name studied (NetCDF files here provide only precipitation cumulation per day, temperature maximum per day, temperature minimum per day).
-		- ```threshold``` : Threshold studied considering the variable chosen.
-		- ```start_date``` : Start date of the period studied.
-		- ```end_date``` : End date of the period studied.
-		- ```period``` : Name of the scenario projection (RCP26/RCP45/RCP85) if different to historical period. It is useful to get to the corresponding folder and will appear on the map. (The original project provides only RCP85 projection)
-		- ```yn_max_scale``` : Asking user if need of a maximum custom on scale map.
+# Input :
+
+- ```input.py``` : list of variables chosen by user
+	- ```variable_input``` : Variable name studied (NetCDF files here provide only precipitation cumulation per day, temperature maximum per day, temperature minimum per day).
+	- ```threshold``` : Threshold studied considering the variable chosen.
+	- ```start_date``` : Start date of the period studied.
+	- ```end_date``` : End date of the period studied.
+	- ```period``` : Name of the scenario projection (RCP26/RCP45/RCP85) if different to historical period. It is useful to get to the corresponding folder and will appear on the map. (The original project provides only RCP85 projection)
+	- ```yn_max_scale``` : Asking user if need of a maximum custom on scale map.
 			- ```max_scale``` : User choosing the maximum of map scale.
 
-	- ```locations.csv ``` : caracteristics of location points user wants to display on map.
-		- ```location_marker``` : Asking user if he needs to display a map with marker or not.
-		- ```text_marker``` : User choosing marker names.
-		- ```list_of_latitudes``` : User entering each latitude for markers.
-		- ```list_of_longitudes``` : User entering each longitude for markers.
-		- ```color_list``` : User entering each color for markers.
-		- ```marker_size``` : User choosing one marker size.
+- ```locations.csv ``` : caracteristics of location points user wants to display on map.
+	- ```location_marker``` : Asking user if he needs to display a map with marker or not.
+	- ```text_marker``` : User choosing marker names.
+	- ```list_of_latitudes``` : User entering each latitude for markers.
+	- ```list_of_longitudes``` : User entering each longitude for markers.
+	- ```color_list``` : User entering each color for markers.
+	- ```marker_size``` : User choosing one marker size.
 
-* Module :
-
-
-	- ```main.py``` : contains all custom modules to provide choropleth map.
-
-* Output :choropleth maps in html depending on variables chosen by user.
-
-	- ```{variable_name}_{period}_{threshold}_without_marker.html``` : choropleth map specified without any marker
-	- ```{variable_name}_{period}_{threshold}_with_marker.html``` : choropleth map specified with markers
-
-* Requirements : 
+# Module :
 
 
-	-  ```requirements.txt``` : All external modules needed to run code. Please make sure you've downloaded all geopandas dependencies (see here)
+- ```main.py``` : contains all custom modules to provide choropleth map.
 
-		- ```pandas```
-		- ```xarray```
-		- ```numpy```
-		- ```geopandas```
-		- ```plotly```
-		- ```shapely```
-		- ```netCDF```
-		- ```dask```
+# Output :choropleth maps in html depending on variables chosen by user.
 
-* Geographical data : files used to parse data according to geographical division chosen by the user
-	- ```europe_nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
-	- ```europe_nutsrg2.json``` : a .json file providing a regions division of Europe
-	- ```europe_countries.geojson``` : a .geojson file providing a countries division of Europe
+- ```{variable_name}_{period}_{threshold}_without_marker.html``` : choropleth map specified without any marker
+- ```{variable_name}_{period}_{threshold}_with_marker.html``` : choropleth map specified with markers
+
+# Requirements : 
+
+
+-  ```requirements.txt``` : All external modules needed to run code. Please make sure you've downloaded all geopandas dependencies (see here)
+
+	- ```pandas```
+	- ```xarray```
+	- ```numpy```
+	- ```geopandas```
+	- ```plotly```
+	- ```shapely```
+	- ```netCDF```
+	- ```dask```
+
+# Geographical data : files used to parse data according to geographical division chosen by the user
+- ```europe_nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
+- ```europe_nutsrg2.json``` : a .json file providing a regions division of Europe
+- ```europe_countries.geojson``` : a .geojson file providing a countries division of Europe
 
          
