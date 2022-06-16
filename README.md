@@ -3,7 +3,7 @@
 ## Introduction
 
 The provided maps are based on Eurocordex NetCDF files on adjusted IPCC models (https://www.euro-cordex.net/060378/index.php.en) and display 
-the number of days the meteorological variable is above the threshold (example : Maximum daily temperature > 30°c). 
+the number of days the meteorological variable is above the threshold (example : Maximum daily max temperature > 30°c). 
 Variable, threshold and time intervall are to be chosen by user. Some custom localization markers can be added.
 
 ## Table of contents
@@ -63,7 +63,7 @@ When this process is complete, you can properly pip install -r requirements.txt 
 * Input : 
 
 	- input.py : list of variables chosen by user
-			= variable_input : Variable name studied (NetCDF files here provide only precipitation cumulation per day and temperature maximum per day).
+			= variable_input : Variable name studied (NetCDF files here provide only precipitation cumulation per day, temperature maximum per day, temperature minimum per day).
 			= threshold : Threshold studied considering the variable chosen.
 			= start_date : Start date of the period studied.
 			= end_date : End date of the period studied.
