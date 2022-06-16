@@ -61,7 +61,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 ```
 ### Files description
 
-# Data : Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
+#### Data : Note that anyone could had  other files with other temporal range or other variables respecting folder structure below.
 
 - ```prAdjust``` : daily precipitation adjusted model 
 	- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020
@@ -76,7 +76,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 	- ```data/histo-projections/*.nc``` : .nc files on temporal range 2006 to 2020 
 	- ```data/RCP85-projections/*.nc``` : .nc files on temporal range 2036 to 2060
 
-# Input :
+#### Input :
 
 - ```input.py``` : list of variables chosen by user
 	- ```variable_input``` : Variable name studied (NetCDF files here provide only precipitation cumulation per day, temperature maximum per day, temperature minimum per day).
@@ -95,17 +95,17 @@ When this process is complete, you can properly ```pip install -r requirements.t
 	- ```color_list``` : User entering each color for markers.
 	- ```marker_size``` : User choosing one marker size.
 
-# Module :
+#### Module :
 
 
 - ```main.py``` : contains all custom modules to provide choropleth map.
 
-# Output :choropleth maps in html depending on variables chosen by user.
+#### Output :choropleth maps in html depending on variables chosen by user.
 
 - ```{variable_name}_{period}_{threshold}_without_marker.html``` : choropleth map specified without any marker
 - ```{variable_name}_{period}_{threshold}_with_marker.html``` : choropleth map specified with markers
 
-# Requirements : 
+#### Requirements : 
 
 
 -  ```requirements.txt``` : All external modules needed to run code. Please make sure you've downloaded all geopandas dependencies (see here)
@@ -119,7 +119,7 @@ When this process is complete, you can properly ```pip install -r requirements.t
 	- ```netCDF```
 	- ```dask```
 
-# Geographical data : files used to parse data according to geographical division chosen by the user
+#### Geographical data : files used to parse data according to geographical division chosen by the user
 - ```europe_nutsrg1.json``` : a .json file providing a regions enlarged division of Europe
 - ```europe_nutsrg2.json``` : a .json file providing a regions division of Europe
 - ```europe_countries.geojson``` : a .geojson file providing a countries division of Europe
