@@ -73,37 +73,68 @@ text_description = ""
 
 ###################
 # Temporal variables choices : setting period, legend title and folders where the data is
-start_date = input(">>> Write the start year (YYYY) (between 2006 and 2019 or 2036 and 2059) = ")+"0101"
 
-if variable_input != "TMIN":
-    if int(f'{start_date[:4]}') < 2022:
-        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2020) = ") +"0101"    
-        period = 'histo'
-        legend = f'Days with + {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]})'
-        filename = f'./data/{variable_name}/{period}_projections/*.nc'
-        # Located files where we will get the data
+while True : 
+
+    start_year = input(">>> Write the start year (YYYY) (between 2006 and 2019 or 2036 and 2059) = ")
+    start_date = start_year +"0101"
+
+    if int(start_year) <= 2019 and int(start_year) >= 2006:
+
+        while True :
+
+            end_year = input(f">>> Write the end year (YYYY) (between {int(start_year) + 1} and 2020) = ")
+            end_date = end_year +"0101"     
+
+            if int(end_year) <= 2020 and int(end_year) >= int(start_year):
+
+                if variable_input != 'TMIN':
+                    legend = f'Days with + {round(threshold)}{unit} (between {start_year} and {end_year})'
+
+                if variable_input == 'TMAX' or 'P':
+                    legend = f'Days with - {round(threshold)}{unit} (between {start_year} and {end_year})'
+
+                period = 'histo'
+                filename = f'./data/{variable_name}/{period}_projections/*.nc'
+                # Located files where we will get the data
+
+                break 
+
+            else :
+                print(f"Please enter a date between {start_year} and 2020.")
+
+        break
+
+    if int(start_year) <= 2059 and int(start_year) >= 2036   :
+
+        while True :
+
+            end_year = input(f">>> Write the end year (YYYY) (between {int(start_year) + 1} and 2060) = ")
+            end_date = end_year +"0101" 
+
+            if int(end_year) <= 2060 and int(end_year) >= int(start_year): 
+
+                if variable_input != 'TMIN':
+                    legend = f'Days with + {round(threshold)}{unit} (between {start_year} and {end_year}) ({period})'
+
+                if variable_input == 'TMAX' or 'P':
+                    legend = f'Days with - {round(threshold)}{unit} (between {start_year} and {end_year}) ({period})'
+
+                period = input('>>> Choose the scenario name (RCP45; RCP60; RCP85) = ')                
+                filename = f'./data/{variable_name}/{period}_projections/*.nc'
+                # Located files where we will get the data
+
+                break
+
+            else:
+                print(f"Please enter a date between {start_year} and 2060.")
+
+        break
 
     else :
-        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2060) = ") +"0101"
-        period = input('>>> Choose the scenario name (RCP45; RCP60; RCP85) = ')
-        legend = f'Days with + {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]}) ({period})'
-        filename = f'./data/{variable_name}/{period}_projections/*.nc'
-        # Located files where we will get the data
+        print("Please enter a date between 2006 and 2019 or between 2036 and 2059.")
 
-else :
-    if int(f'{start_date[:4]}') < 2022:
-        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2020) = ") +"0101"    
-        period = 'histo'
-        legend = f'Days with - {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]})'
-        filename = f'./data/{variable_name}/{period}_projections/*.nc'
-        # Located files where we will get the data
 
-    else :
-        end_date = input(f">>> Write the end year (YYYY) (between {int(start_date[:4]) + 1} and 2060) = ") +"0101"
-        period = input('>>> Choose the scenario name (RCP45; RCP60; RCP85) = ')
-        legend = f'Days with - {round(threshold)}{unit} (between {start_date[:4]} and {end_date[:4]}) ({period})'
-        filename = f'./data/{variable_name}/{period}_projections/*.nc'
-        # Located files where we will get the data
 
 # Computing number of years, will be necessary to compute year average
 years_number = int(f'{end_date[:4]}') - int(f'{start_date[:4]}')
@@ -170,7 +201,7 @@ print('*** All choices have been saved. Beginning of the process ... ***')
 # File opening and data extraction
 # Please refer to main.py for a better understand of functions
 
-ds = user_choice.open_file()
+ds = user_choice.open_files()
 
 df = user_choice.files_location_points(ds)
 
