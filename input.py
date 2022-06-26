@@ -89,10 +89,10 @@ while True :
             if int(end_year) <= 2020 and int(end_year) >= int(start_year):
 
                 if variable_input != 'TMIN':
-                    legend = f'Days with + {round(threshold)}{unit} (between {start_year} and {end_year})'
+                    legend = f'Days with - {round(threshold)}{unit} (between {start_year} and {end_year})'
 
                 if variable_input == 'TMAX' or 'P':
-                    legend = f'Days with - {round(threshold)}{unit} (between {start_year} and {end_year})'
+                    legend = f'Days with + {round(threshold)}{unit} (between {start_year} and {end_year})'
 
                 period = 'histo'
                 filename = f'./data/{variable_name}/{period}_projections/*.nc'
@@ -113,14 +113,15 @@ while True :
             end_date = end_year +"0101" 
 
             if int(end_year) <= 2060 and int(end_year) >= int(start_year): 
+                period = input('>>> Choose the scenario name (RCP45; RCP60; RCP85) = ')
 
                 if variable_input != 'TMIN':
-                    legend = f'Days with + {round(threshold)}{unit} (between {start_year} and {end_year}) ({period})'
-
-                if variable_input == 'TMAX' or 'P':
                     legend = f'Days with - {round(threshold)}{unit} (between {start_year} and {end_year}) ({period})'
 
-                period = input('>>> Choose the scenario name (RCP45; RCP60; RCP85) = ')                
+                if variable_input == 'TMAX' or 'P':
+                    legend = f'Days with + {round(threshold)}{unit} (between {start_year} and {end_year}) ({period})'
+
+                                
                 filename = f'./data/{variable_name}/{period}_projections/*.nc'
                 # Located files where we will get the data
 
